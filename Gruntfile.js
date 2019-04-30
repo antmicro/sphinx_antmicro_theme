@@ -36,7 +36,7 @@ module.exports = function(grunt) {
               expand: true,
               flatten: true,
               src: ['fonts/Lato/*'],
-              dest: 'sphinx_rtd_theme/static/fonts/Lato',
+              dest: 'sphinx_rtd_theme/static/fonts/Lato/',
               filter: 'isFile'
           },
           {

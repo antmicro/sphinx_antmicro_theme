@@ -69,6 +69,7 @@
       padding: 0px
       border: none
       margin: 0
+      background: none !important
   // Needs 100% width for line highlighting to work properly
   div[class^='highlight'] td.code
     width: 100%
@@ -289,6 +290,7 @@
   tt, code
     @extend code
     color: $black
+    white-space: normal
     font-family: $code-font-family
     padding: 2px 5px
     big, em
@@ -409,7 +411,6 @@
     margin: auto $base-line-height / 12
   .versionmodified
     font-style: italic
-
 
 // Mobile specific
 +media($mobile)

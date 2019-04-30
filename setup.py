@@ -10,7 +10,7 @@ from sphinx_rtd_theme import __version__
 
 
 setup(
-    name='sphinx_rtd_theme',
+    name='sphinx_antmicro_theme',
     version=__version__,
     url='https://github.com/rtfd/sphinx_rtd_theme/',
     license='MIT',
@@ -19,9 +19,13 @@ setup(
     description='Read the Docs theme for Sphinx',
     long_description=open('README.rst', encoding='utf-8').read(),
     zip_safe=False,
-    packages=['sphinx_rtd_theme'],
-    package_data={'sphinx_rtd_theme': [
+    packages=['sphinx_antmicro_theme'],
+    package_dir={'sphinx_antmicro_theme': 'sphinx_rtd_theme'},
+    package_data={'sphinx_antmicro_theme': [
         'theme.conf',
+        'logo-400.png',
+        'logo-400-html.png',
+        'sphinx_antmicro_theme.sty',
         '*.html',
         'static/css/*.css',
         'static/js/*.js',
@@ -31,7 +35,7 @@ setup(
     # See http://www.sphinx-doc.org/en/stable/theming.html#distribute-your-theme-as-a-python-package
     entry_points = {
         'sphinx.html_themes': [
-            'sphinx_rtd_theme = sphinx_rtd_theme',
+            'sphinx_antmicro_theme = sphinx_antmicro_theme',
         ]
     },
     install_requires=[

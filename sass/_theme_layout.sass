@@ -174,7 +174,6 @@ html
   padding: $gutter / 2
   margin-bottom: $gutter / 2
   z-index: $z-index-popover
-  background-color: $nav-search-background-color
   text-align: center
   padding: $gutter / 2
   display: block
@@ -281,7 +280,7 @@ html
 
 .wy-nav-top
   display: none
-  background: $link-color
+  background: $nav-background-color
   color: $white
   padding: $gutter / 4 $gutter / 2
   position: relative
@@ -317,6 +316,9 @@ html
   max-width: $nav-content-width
   margin: auto
 
+.wy-nav-content-wide
+  max-width: none
+
 .wy-body-mask
   position: fixed
   width: 100%
@@ -336,7 +338,6 @@ footer
     font-size: 1em
     background: none
     border: none
-    color: $footer-color
 
 .rst-footer-buttons
   &:before, &:after
@@ -364,7 +365,7 @@ footer
     font-size: 90%
 
 .genindextable li > ul
-    margin-left: $base-line-height
+  margin-left: $base-line-height
 
 +media($tablet)
   .wy-body-for-nav
@@ -409,3 +410,24 @@ footer
     display: none
   .wy-nav-content-wrap
     margin-left: 0
+
+.wide-toggle
+  text-align: center
+  width: 100%
+  position: absolute
+  bottom: 0
+  span
+    cursor: pointer
+    display: inline-block
+    line-height: 18px
+    padding: $gutter / 4 $gutter
+    display: block
+    position: relative
+    font-size: 90%
+    color: $menu-link-light
+    &:hover
+      background-color: lighten($menu-background-color, 10%)
+
++media($tablet) 
+  .wide-toggle
+    display: none

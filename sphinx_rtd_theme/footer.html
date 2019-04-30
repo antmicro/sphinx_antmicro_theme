@@ -1,3 +1,13 @@
+{% if page_source_suffix %}
+{% set suffix = page_source_suffix %}
+{% else %}
+{% set suffix = source_suffix %}
+{% endif %}
+{% if commit %}
+{% set commit_short = commit[0:8] %}
+{% set home_path = pathto('.') %}
+{% endif %}
+
 <footer>
   {% if (theme_prev_next_buttons_location == 'bottom' or theme_prev_next_buttons_location == 'both') and (next or prev) %}
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
@@ -18,7 +28,7 @@
       {%- if hasdoc('copyright') %}
         {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}{% endtrans %}
       {%- else %}
-        {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}{% endtrans %}
+        {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }};{% endtrans %}
       {%- endif %}
     {%- endif %}
 
@@ -31,13 +41,18 @@
       {% endtrans %}
     {%- elif commit %}
       {% trans commit=commit %}
-        <span class="commit">
-          Revision <code>{{ commit }}</code>.
+        <span class="commit" data-home="{{ home_path }}">
+          Revision <a id="commitnewlink" href=""><code>{{ commit_short }}</code></a>;
         </span>
       {% endtrans %}
     {%- elif last_updated %}
       <span class="lastupdated">
         {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+      </span>
+    {%- endif %}
+    {%- if branch %}
+      <span class="commit">
+        branch <a id="branchnewlink" href=""><code>{{ branch }}</code></a>.
       </span>
     {%- endif %}
 

@@ -97,6 +97,9 @@ function ThemeNav () {
             .on('click', "[data-toggle='rst-current-version']", function() {
                 $("[data-toggle='rst-versions']").toggleClass("shift-up");
             })
+            .on('click', '.wide-toggle-btn', function() {
+              $('.wy-nav-content').toggleClass('wy-nav-content-wide');
+            })
 
         // Make tables responsive
         $("table.docutils:not(.field-list,.footnote,.citation)")

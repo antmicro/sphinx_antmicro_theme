@@ -16,6 +16,10 @@
 {% set display_gitlab = True %}
 {% endif %}
 
+{% if check_meta and 'github_url' in meta %}
+{% set display_github = True %}
+{% endif %}
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -29,7 +33,9 @@
     {% block breadcrumbs_aside %}
       <li class="wy-breadcrumbs-aside">
         {% if hasdoc(pagename) %}
-          {% if conf_py_path %}
+          {% if display_github %}
+            <a href="https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}" class="fa fa-github"> {{ _('View repository on GitHub') }}</a>
+          {% elif conf_py_path %}
           <a id="newlink" href="" data="{{ conf_py_path }}" class="fa fa-pencil"> {{ _('Edit') }}</a>
           {% elif show_source and source_url_prefix %}
             <a href="{{ source_url_prefix }}{{ pagename }}{{ suffix }}">{{ _('View source') }}</a>
